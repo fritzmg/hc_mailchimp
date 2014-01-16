@@ -1,0 +1,134 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="system/modules/hc_mailchimp/languages/en/modules.php" source-language="en">
+    <body>
+      <trans-unit id="MOD.hc_mailchimp.0">
+        <source>Mailchimp</source>
+        <target>Mailchimp</target>
+      </trans-unit>
+      <trans-unit id="MOD.hc_mailchimp.1">
+        <source>Manage your Mailchimp lists in contao</source>
+        <target>Anlegen von Listen aus einem vorhandenen Mailchimp Account</target>
+      </trans-unit>
+	  <trans-unit id="FMD.hc_mailchimp.0">
+	    <source>Mailchimp</source>
+	    <target>Mailchimp</target>
+	  </trans-unit>
+      <trans-unit id="FMD.hc_mailchimp_subscribeFormShort.0">
+	    <source>Mailchimp Subscribeform Short</source>
+		<target>Mailchimp Anmeldeformular kurz</target>
+	  </trans-unit>
+	  <trans-unit id="FMD.hc_mailchimp_subscribeFormShort.1">
+	    <source>Subscribeform only with required fields</source>
+		<target>Anmeldeformular nur mit Pflichtfeldern</target>
+	  </trans-unit>
+	  <trans-unit id="FMD.hc_mailchimp_subscribeForm.0">
+	    <source>Mailchimp Subscribeform</source>
+		<target>Mailchimp Anmeldeformular</target>
+	  </trans-unit>
+	  <trans-unit id="FMD.hc_mailchimp_subscribeForm.1">
+	    <source>Subscribeform with all fields</source>
+		<target>Anmeldeformular mit allen Feldern der Liste</target>
+	  </trans-unit>
+	  <trans-unit id="FMD.hc_mailchimp_unsubscribeForm.0">
+	    <source>Mailchimp Unsubscribeform</source>
+		<target>Mailchimp Abmeldeformular</target>
+	  </trans-unit>
+	  <trans-unit id="FMD.hc_mailchimp_unsubscribeForm.1">
+	    <source>Unsubscribeform for the list</source>
+		<target>Abmeldeformular der Liste</target>
+	  </trans-unit>
+	  <trans-unit id="FMD.hc_mailchimp_archive.0">
+	    <source>Mailchimp Archive</source>
+		<target>Mailchimp Archiv</target>
+	  </trans-unit>
+	  <trans-unit id="FMD.hc_mailchimp_archive.1">
+	    <source>Campaignarchive</source>
+		<target>Archiv der letzten Kampagnen</target>
+	  </trans-unit>
+	    <trans-unit id="tl_module.list_legend">
+		    <source>Mailchimp List</source>
+		    <target>Mailchimpliste</target>
+	    </trans-unit>
+	    <trans-unit id="tl_module.jumpTo_legend">
+		    <source>Jump to site</source>
+		    <target>Folgeseite</target>
+	    </trans-unit>
+	    <trans-unit id="tl_module.option_legend">
+		    <source>Options</source>
+		    <target>Optionen</target>
+	    </trans-unit>
+	    <trans-unit id="tl_module.delete_legend">
+		    <source>Deleteoptions</source>
+		    <target>Löschoption</target>
+	    </trans-unit>
+	    <trans-unit id="tl_module.hc_mailchimp_tp_list.0">
+		    <source>Mailchimp List</source>
+		    <target>Mailchimpliste</target>
+	    </trans-unit>
+	    <trans-unit id="tl_module.hc_mailchimp_tp_list.1">
+		    <source>Please choose a list.</source>
+		    <target>Bitte wählen Sie eine von Ihnen angelegte Liste aus.</target>
+	    </trans-unit>
+	    <trans-unit id="tl_module.hc_mailchimp_tp_jumpTo.0">
+		    <source>Jump to site after submit mailchimp form</source>
+		    <target>Folgeseite</target>
+	    </trans-unit>
+	    <trans-unit id="tl_module.hc_mailchimp_tp_jumpTo.1">
+		    <source>Please choose a site to jump after submit mailchimp form.</source>
+		    <target>Bitte wählen Sie Die Seite aus, die nach dem erfolgreichen Formularsendens angesteuert werden soll.</target>
+	    </trans-unit>
+	    <trans-unit id="tl_module.hc_mailchimp_tp_optin.0">
+		    <source>Opt-in rule</source>
+		    <target>Op-in Verfahren</target>
+	    </trans-unit>
+	    <trans-unit id="tl_module.hc_mailchimp_tp_optin.1">
+		    <source>Please select, then you want a opt-in rule.</source>
+		    <target>Bitte wählen Sie aus, ob ein Opt-in Verfahren genutzt werden soll.</target>
+	    </trans-unit>
+	    <trans-unit id="tl_module.hc_mailchimp_tp_dateformat.0">
+		    <source>Dateformat</source>
+		    <target>Datumsformat</target>
+	    </trans-unit>
+	    <trans-unit id="tl_module.hc_mailchimp_tp_dateformat.1">
+		    <source>Please select, which date format you choose in your mailchimp form.</source>
+		    <target>Bitte wählen Sie aus, welches Datumsformat in Ihren Formulareinstellungen definiert wurde.</target>
+	    </trans-unit>
+	    <trans-unit id="tl_module.hc_mailchimp_tp_delete.0">
+		    <source>Deleteoption</source>
+		    <target>Löschoption</target>
+	    </trans-unit>
+	    <trans-unit id="tl_module.hc_mailchimp_tp_delete.1">
+		    <source>Please check and a people who unsubscribe will delete in your list completly.</source>
+		    <target>Bitte wählen Sie aus, ob jemand der sich aus Ihrer Liste austrägt, auch komplett aus Ihrer Liste
+			    entfernt werden soll.</target>
+	    </trans-unit>
+	    <trans-unit id="tl_module.hc_mailchimp_archive_mailchimplist.0">
+		    <source>Mailchimp List</source>
+		    <target>Mailchimpliste</target>
+	    </trans-unit>
+	    <trans-unit id="tl_module.hc_mailchimp_archive_mailchimplist.1">
+		    <source>Please choose a list.</source>
+		    <target>Bitte wählen Sie eine von Ihnen angelegte Liste aus.</target>
+	    </trans-unit>
+	    <trans-unit id="tl_module.hc_mailchimp_folder.0">
+		    <source>Foldername</source>
+		    <target>Ordnername</target>
+	    </trans-unit>
+	    <trans-unit id="tl_module.hc_mailchimp_folder.1">
+		    <source>Input the folder name where your campaigns stored which you want list. When the field is empty
+			    all campaign were show.
+		    </source>
+		    <target>Tragen Sie hier bitte den Namen des Ordners ein, welcher die Kampagnen beinhaltet, die angezeigt
+			    werden sollen. Wenn das Feld leer ist werden alle Kampagnen angezeigt.</target>
+	    </trans-unit>
+	    <trans-unit id="tl_module.hc_mailchimp_subscribers_mailchimplist.0">
+		    <source>Show Subscribers</source>
+		    <target>Zeige Anmeldungen</target>
+	    </trans-unit>
+	    <trans-unit id="tl_module.hc_mailchimp_subscribers_mailchimplist.1">
+		    <source>Show the number of subscribers from the list.</source>
+		    <target>Zeigt die Anzahl der bisherigen Anmeldungen.</target>
+	    </trans-unit>
+    </body>
+  </file>
+</xliff>
