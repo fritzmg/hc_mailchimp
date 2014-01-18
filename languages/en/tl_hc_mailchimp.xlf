@@ -69,16 +69,16 @@
 				<source>You must fill all required fields (*).</source>
 			</trans-unit>
 			<trans-unit id="tl_hc_mailchimp.error232">
-				<source>Your email address don\'t exist in our List.</source>
+				<source>Your email address don't exist in our List.</source>
 			</trans-unit>
 			<trans-unit id="tl_hc_mailchimp.error215">
-				<source>Please insert a valid email address.';</source>
+				<source>Please insert a valid email address.</source>
 			</trans-unit>
 			<trans-unit id="tl_hc_mailchimp.archiveerror">
-				<source>No campaign are available.';</source>
+				<source>No campaign are available.</source>
 			</trans-unit>
 			<trans-unit id="tl_hc_mailchimp.subscribers">
-				<source>Subscribers';</source>
+				<source>Subscribers</source>
 			</trans-unit>
 		</body>
 	</file>
