@@ -9,18 +9,19 @@ class ModuleHcMailchimpUnsubscribeForm extends Module
 	protected function compile()
 	{
 
-		$moduleParams = Database::getInstance()
+		/*$moduleParams = Database::getInstance()
 			->prepare("SELECT * FROM tl_module WHERE id=?")
 			->limit(1)
 			->execute($this->id);
 
 		// id der angelegten Liste im Backend Mailchimp
 		$listid = $moduleParams->hc_mailchimp_unsubscribeForm_mailchimplist;
+		*/
 
 		$mailchimpObject = Database::getInstance()
 			->prepare("SELECT * FROM tl_hc_mailchimp WHERE id=?")
 			->limit(1)
-			->execute($listid);
+			->execute($this->hc_mailchimp_unsubscribeForm_mailchimplist);
 
 		// Mailchimp API generieren aus MCAPI Klasse
 		$api = new MCAPI($mailchimpObject->listapikey);
@@ -58,7 +59,7 @@ class ModuleHcMailchimpUnsubscribeForm extends Module
 			}
 
 			// All FormData good, then subscribe
-			if($moduleParams->hc_mailchimp_delete_mailchimplist){
+			if($this->hc_mailchimp_unsubscribeForm_mailchimplist){
 				// User in Liste aufnehmen bzw- Opt-In Verfahren starten
 				$api->listUnsubscribe($mailchimpObject->listid, $_POST['EMAIL'], true);
 			} else {
