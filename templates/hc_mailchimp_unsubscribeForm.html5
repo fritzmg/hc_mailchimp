@@ -1,15 +1,12 @@
 <?php $this->loadLanguageFile('frontend'); ?>
 <?php $seitenurl = $_SERVER['REQUEST_URI']; ?>
 
-
 <?php if ($this->headline): ?>
 	<<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
 <?php endif; ?>
 <?php if ($this->error): ?>
 	<div class="hc_mailchimp_error">
-		<?php if ($this->error232): ?>Die Email Adresse existiert nicht in der Liste.<?php endif; ?>
-		<?php if ($this->error502): ?>Bitte eine gültige Email Adresse angeben.<?php endif; ?>
-		<?php if ($this->error215): ?>Bitte eine gültige Email Adresse angeben.<?php endif; ?>
+		<?php echo $this->error; ?>
 	</div>
 <?php endif; ?>
 <?php if ($this->fields): ?>

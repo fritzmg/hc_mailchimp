@@ -6,9 +6,7 @@
 <?php endif; ?>
 <?php if ($this->error): ?>
 	<div class="hc_mailchimp_error">
-	<?php if ($this->error232): ?>Die Email Adresse existiert nicht in der Liste.<?php endif; ?>
-	<?php if ($this->error502): ?>Bitte eine gültige Email Adresse angeben.<?php endif; ?>
-	<?php if ($this->error215): ?>Bitte eine gültige Email Adresse angeben.<?php endif; ?>
+		<?php echo $this->error; ?>
 	</div>
 <?php endif; ?>
 <?php if ($this->fields): ?>
@@ -24,7 +22,7 @@
 <div class="type-button ym-fbox-button">
     <input type="reset" class="ym-button" value="Löschen" id="reset" name="reset" />
     <input type="submit" class="ym-button" value="Senden" id="submit" name="submit" />
-    <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
+    <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}" />
 </div>
 </form>
 <?php endif; ?>

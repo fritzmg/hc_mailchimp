@@ -3,7 +3,7 @@
 <?php endif; ?>
 <?php if ($this->archiveerror): ?>
 	<div class="hc_mailchimp_error">
-		<p>Es gibt momentan keine Kampagnen.</p>
+		<?php echo $this->archiveerror; ?>
 	</div>
 <?php endif; ?>
 <?php if ($this->fields):

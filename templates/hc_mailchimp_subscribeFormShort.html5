@@ -5,10 +5,7 @@
 <?php endif; ?>
 <?php if ($this->error): ?>
 	<div class="hc_mailchimp_error">
-		<?php if ($this->error501): ?>Bitte ein gültiges Datumsformat angeben.<?php endif; ?>
-		<?php if ($this->error502): ?>Bitte eine gültige Email Adresse angeben.<?php endif; ?>
-		<?php if ($this->error214): ?>Die Email Adresse existiert bereits.<?php endif; ?>
-		<?php if ($this->error250): ?>Bitte alle Pflichtfelder(*) ausfüllen.<?php endif; ?>
+		<?php echo $this->error; ?>
 	</div>
 <?php endif; ?>
 <?php if ($this->fields): ?>

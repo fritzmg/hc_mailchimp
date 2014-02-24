@@ -45,7 +45,7 @@
 				<source>Options</source>
 			</trans-unit>
 			<trans-unit id="tl_module.delete_legend">
-				<source>Deleteoptions</source>
+				<source>Deleteoption</source>
 			</trans-unit>
 			<trans-unit id="tl_module.hc_mailchimp_tp_list.0">
 				<source>Mailchimp List</source>

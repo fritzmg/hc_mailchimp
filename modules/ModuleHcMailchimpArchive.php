@@ -10,26 +10,18 @@ class ModuleHcMailchimpArchive extends Module
 	{
 		$campaigns = array();
 
-		$moduleParams = Database::getInstance()
-			->prepare("SELECT * FROM tl_module WHERE id=?")
-			->limit(1)
-			->execute($this->id);
-
-		// id der angelegten Liste im Backend Mailchimp
-		$listid = $moduleParams->hc_mailchimp_archive_mailchimplist;
-
 		$mailchimpObject = Database::getInstance()
 			->prepare("SELECT * FROM tl_hc_mailchimp WHERE id=?")
 			->limit(1)
-			->execute($listid);
+			->execute($this->hc_mailchimp_archive_mailchimplist);
 
 		// Mailchimp API generieren aus MCAPI Klasse
 		$api = new MCAPI($mailchimpObject->listapikey);
 
 		// Folder name
-		$foldername = $moduleParams->hc_mailchimp_archive_mailchimpfolder;
+		$foldername = $this->hc_mailchimp_archive_mailchimpfolder;
 
-		// Seacr folderid, when foldername is set in module
+		// Search folderid, when foldername is set in module
 		if($foldername != ''){
 			$folderlists = $api->folders();
 
@@ -61,7 +53,7 @@ class ModuleHcMailchimpArchive extends Module
 		}
 
 		if ($api->errorCode){
-			$this->Template->archiveerror = 1;
+			$this->Template->archiveerror = $GLOBALS['TL_LANG']['MSC']['hc_mailchimp']['archiverror'];
 		} else {
 			foreach($campaignlist['data'] as $c){
 				$campaigns[] = $c;

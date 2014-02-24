@@ -9,7 +9,7 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['hc_mailchimp_subscribeForm'] =
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['hc_mailchimp_unsubscribeForm'] =
 	'{title_legend},name,headline,type;{list_legend},hc_mailchimp_unsubscribeForm_mailchimplist;{jumpTo_legend},hc_mailchimp_jumpTo_mailchimplist;
-	{delete_legend},delete_mailchimplist;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+	{delete_legend},hc_mailchimp_delete_mailchimplist;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['hc_mailchimp_archive'] =
 	'{title_legend},name,headline,type;{list_legend},hc_mailchimp_archive_mailchimplist,hc_mailchimp_archive_mailchimpfolder;

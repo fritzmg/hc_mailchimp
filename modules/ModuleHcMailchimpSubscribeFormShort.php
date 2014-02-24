@@ -8,90 +8,40 @@ class ModuleHcMailchimpSubscribeFormShort extends Module
 
 	protected function compile()
 	{
-		$moduleParams = Database::getInstance()
-			->prepare("SELECT * FROM tl_module WHERE id=?")
-			->limit(1)
-			->execute($this->id);
-
-		$listid = $moduleParams->hc_mailchimp_subscribeFormShort_mailchimplist;
-		$subscribersoption = $moduleParams->hc_mailchimp_subscribers_mailchimplist;
+		$listid = $this->hc_mailchimp_subscribeFormShort_mailchimplist;
+		$subscribersoption = $this->hc_mailchimp_subscribers_mailchimplist;
 
 		$mailchimpObject = Database::getInstance()
 			->prepare("SELECT * FROM tl_hc_mailchimp WHERE id=?")
 			->limit(1)
 			->execute($listid);
 
-		// Mailchimp API generieren aus MCAPI Klasse
+		// Generate a Mailchimp object
 		$api = new MCAPI($mailchimpObject->listapikey);
 
-		if (isset($_POST['submit'])){
+		if (Input::post('submit') == "Senden"){
 
-			// Texteingabe filtern
-			function daten_reiniger($inhalt){
-				if(is_array($inhalt)){
-					foreach($inhalt as $key => $value){
-						$inhalt[$key] = daten_reinigen($value);
-					}
-				}else {
-					if(!empty($inhalt)){
-						//HTML- und PHP-Code entfernen
-						$inhalt = strip_tags($inhalt);
-						//Umlaute und Sonderzeichen in HTML-Schreibweise umwandeln
-						$inhalt = htmlspecialchars($inhalt);
-						//Entfernt überflüssige Zeichen
-						//Anfang und Ende einer Zeichenkette
-						$inhalt = trim($inhalt);
-						//Backslashes entfernen
-						$inhalt = stripslashes($inhalt);
-					}
-				}
-				return $inhalt;
-			}
-
-			//Schreibarbeit durch Umwandeln sparen
-			foreach($_POST as $key=>$element){
-				if($key != "submit"){
-					//Eingabe filtern
-					$_POST[$key] = daten_reiniger($element);
-				}
-			}
+			$emailCleanValue = trim(Input::stripSlashes(Input::xssClean(Input::stripTags(Input::post('EMAIL')))));
 
 			// All FormData good, then subscribe
-			if($moduleParams->hc_mailchimp_optin_mailchimplist){
-				// User in Liste aufnehmen bzw- Opt-In Verfahren starten
-				$api->listSubscribe( $mailchimpObject->listid, $_POST['EMAIL'], $_POST, 'html' );
+			if($this->hc_mailchimp_optin_mailchimplist){
+				// User subscribe with optin confirmation
+				$api->listSubscribe( $mailchimpObject->listid, $emailCleanValue, $_POST, 'html' );
 			} else {
-				// User in Liste aufnehmen ohne Opt-In Verfahren
-				$api->listSubscribe( $mailchimpObject->listid, $_POST['EMAIL'], $_POST, 'html', false );
+				// User subscribe without optin confirmation
+				$api->listSubscribe( $mailchimpObject->listid, $emailCleanValue, $_POST, 'html', false );
 			}
 
 			if ($api->errorCode){
+				// return language file with error code, which api return
+				// error code 502 and 215 : invalid Email address
+				// error code 501 : invalid date format
+				// error code 232 : Email not exists
+				$this->Template->error = $GLOBALS['TL_LANG']['MSC']['hc_mailchimp'][$api->errorCode];
 
-				$error = 1;
-				$this->Template->error = $error;
-
-				// invalid EmailAdress
-				if($api->errorCode == '502'){
-					$error502 = 1;
-					$this->Template->error502 = $error502;
-				}
-				// Email already exists
-				if($api->errorCode == '214'){
-					$error214 = 1;
-					$this->Template->error214 = $error214;
-				}
-				// Requierd MergeTag
-				if($api->errorCode == '250'){
-					$error250 = 1;
-					$this->Template->error250 = $error250;
-				}
-
-				// Formular wird erstellt
-				$this->createForm($api,$mailchimpObject->listid,$subscribersoption);
-
+				$this->createForm($api,$mailchimpObject->listid,$dateformat,$subscribersoption);
 			} else {
-				// Jump to the Follwsite
-				$this->jumpToOrReload($moduleParams->hc_mailchimp_jumpTo_mailchimplist);
+				$this->jumpToOrReload($this->hc_mailchimp_jumpTo_mailchimplist);
 			}
 
 		} else {
@@ -99,28 +49,27 @@ class ModuleHcMailchimpSubscribeFormShort extends Module
 		}
 	}
 
-	protected function createForm($api,$listid,$subscribersoption){
+	protected function createForm($api,$listid,$subscribersoption)
+	{
 		$arrMailChimpListFields = array();
 
-		// Alle MergeVars aus der Liste in $result speichern
+		// All MergeVars from list save into $result
 		$result = $api->listMergeVars($listid);
 
-		// Abfrage ob wirklich etwas gefunden wurde ueber apikey und listid
 		if($result != false){
-			// Schleife ueber alle MergeVars
+			// Loop over all MergeVars
 			foreach($result as $mergevar){
-				if($mergevar['req'] && $mergevar['public']){ // Wenn Feld sichtbar
-					array_push($arrMailChimpListFields, $mergevar); // Feld kommt zur Templateliste
+				if($mergevar['req'] && $mergevar['public']){
+					array_push($arrMailChimpListFields, $mergevar);
 				}
 			}
 		}
 		if($subscribersoption == 1){
-			// Alle Subscribers suchen (max 15000)
+			// Search all subscribers (max 15000)
 			$subscribers = $api->listMembers($listid);
 			$this->Template->subscribers = $subscribers['total'];
 		}
 
-		// Felder an Template uebergeben
 		$this->Template->fields = $arrMailChimpListFields;
 	}
 }
