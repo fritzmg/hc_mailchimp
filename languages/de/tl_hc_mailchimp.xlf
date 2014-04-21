@@ -1,0 +1,70 @@
+<?xml version="1.0" ?><xliff version="1.1">
+	<file datatype="php" original="system/modules/hc_mailchimp/languages/en/tl_hc_mailchimp.php" source-language="en">
+		<body>
+			<trans-unit id="tl_hc_mailchimp.listname.0">
+				<source>Listname</source>
+				<target>Listenname</target>
+			</trans-unit>
+			<trans-unit id="tl_hc_mailchimp.listname.1">
+				<source>Please enter name for your list.</source>
+				<target>Bitte einen Namen für die Liste eingeben.</target>
+			</trans-unit>
+			<trans-unit id="tl_hc_mailchimp.listapikey.0">
+				<source>List API Key</source>
+				<target>Listen API Key</target>
+			</trans-unit>
+			<trans-unit id="tl_hc_mailchimp.listapikey.1">
+				<source>Please enter an API Key for your list.</source>
+				<target>Bitte einen API Key aus dem Mailchimp Account für die Liste eintragen.</target>
+			</trans-unit>
+			<trans-unit id="tl_hc_mailchimp.listid.0">
+				<source>List-ID</source>
+				<target>List-ID</target>
+			</trans-unit>
+			<trans-unit id="tl_hc_mailchimp.listid.1">
+				<source>The List-ID, for the list from your Mailchimp account.</source>
+				<target>Bitte die List-ID aus dem Mailchimp Account für die Liste eintragen.</target>
+			</trans-unit>
+			<trans-unit id="tl_hc_mailchimp.listlegend">
+				<source>Listdetails</source>
+				<target>Listeneigenschaften</target>
+			</trans-unit>
+			<trans-unit id="tl_hc_mailchimp.mailchimplegend">
+				<source>Mailchimp account</source>
+				<target>Mailchim Account</target>
+			</trans-unit>
+			<trans-unit id="tl_hc_mailchimp.new.0">
+				<source>New List</source>
+				<target>Neue Liste</target>
+			</trans-unit>
+			<trans-unit id="tl_hc_mailchimp.new.1">
+				<source>Create new list from your Mailchimp account</source>
+				<target>Eine neue Liste erstellen.</target>
+			</trans-unit>
+			<trans-unit id="tl_hc_mailchimp.edit.0">
+				<source>Edit List</source>
+				<target>Liste bearbeiten</target>
+			</trans-unit>
+			<trans-unit id="tl_hc_mailchimp.edit.1">
+				<source>Edit the list</source>
+				<target>Die Liste bearbeiten.</target>
+			</trans-unit>
+			<trans-unit id="tl_hc_mailchimp.delete.0">
+				<source>Delete list</source>
+				<target>Liste löschen</target>
+			</trans-unit>
+			<trans-unit id="tl_hc_mailchimp.delete.1">
+				<source>Delete the list</source>
+				<target>Die Liste löschen.</target>
+			</trans-unit>
+			<trans-unit id="tl_hc_mailchimp.show.0">
+				<source>Detail from list</source>
+				<target>Listendetails</target>
+			</trans-unit>
+			<trans-unit id="tl_hc_mailchimp.show.1">
+				<source>Details from the list</source>
+				<target>Listendetails anschauen.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

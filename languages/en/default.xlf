@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+	<file datatype="php" original="system/modules/hc_mailchimp/languages/en/default.php" source-language="en">
+		<body>
+			<trans-unit id="MSC.hc_mailchimp.502">
+				<source>Please insert a valid email address.</source>
+			</trans-unit>
+			<trans-unit id="MSC.hc_mailchimp.501">
+				<source>Please insert a valid date format.</source>
+			</trans-unit>
+			<trans-unit id="MSC.hc_mailchimp.215">
+				<source>Please insert a valid email address.</source>
+			</trans-unit>
+			<trans-unit id="MSC.hc_mailchimp.232">
+				<source>Email address not exists.</source>
+			</trans-unit>
+			<trans-unit id="MSC.hc_mailchimp.archiverror">
+				<source>No campaign in archiv.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
