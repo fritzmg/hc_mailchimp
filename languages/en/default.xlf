@@ -8,6 +8,9 @@
 			<trans-unit id="MSC.hc_mailchimp.501">
 				<source>Please insert a valid date format.</source>
 			</trans-unit>
+			<trans-unit id="MSC.hc_mailchimp.214">
+				<source>Email address already exists.</source>
+			</trans-unit>
 			<trans-unit id="MSC.hc_mailchimp.215">
 				<source>Please insert a valid email address.</source>
 			</trans-unit>

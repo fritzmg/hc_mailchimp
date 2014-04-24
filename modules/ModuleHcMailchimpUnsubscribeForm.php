@@ -18,21 +18,12 @@ class ModuleHcMailchimpUnsubscribeForm extends Module
 
 		if (Input::post('submit') == "Senden"){
 
-			$emailCleanValue = trim(Input::stripSlashes(Input::xssClean(Input::stripTags(Input::post('EMAIL')))));
+			$emailCleanValue = trim(Input::post('EMAIL'));
 
-			// If user should delete completly from list
-			if($this->hc_mailchimp_delete_mailchimplist){
-				// Delete user finally
-				$api->listUnsubscribe($mailchimpObject->listid, $emailCleanValue, true);
-			} else {
-				// Set flag to unsubscribe
-				$api->listUnsubscribe($mailchimpObject->listid, $emailCleanValue);
-			}
+			$api->listUnsubscribe( $mailchimpObject->listid, $emailCleanValue, ($this->hc_mailchimp_delete_mailchimplist ? true : false));
 
 			if ($api->errorCode){
 				// return language file with error code, which api return
-				// error code 502 and 215 : invalid Email address
-				// error code 232 : Email not exists
 				$this->Template->error = $GLOBALS['TL_LANG']['MSC']['hc_mailchimp'][$api->errorCode];
 
 				$this->createForm($api,$mailchimpObject->listid);
@@ -49,15 +40,14 @@ class ModuleHcMailchimpUnsubscribeForm extends Module
 	{
 		$arrMailChimpListFields = array();
 
-		// Alle MergeVars aus der Liste in $result speichern
+		// All MergeVars from list save into $result
 		$result = $api->listMergeVars($listid);
 
-		// Abfrage ob wirklich etwas gefunden wurde ueber apikey und listid
-
-		// Schleife ueber alle MergeVars
-		foreach($result as $mergevar){
-			if($mergevar['tag'] == 'EMAIL'){ // Wenn Feld EMAIL tag
-				array_push($arrMailChimpListFields, $mergevar); // Feld kommt zur Templateliste
+		if($result != false){
+			foreach($result as $mergevar){
+				if($mergevar['tag'] == 'EMAIL'){ // Wenn Feld EMAIL tag
+					array_push($arrMailChimpListFields, $mergevar); // Feld kommt zur Templateliste
+				}
 			}
 		}
 

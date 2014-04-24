@@ -50,36 +50,6 @@
 			<trans-unit id="tl_hc_mailchimp.show.1">
 				<source>Details from the list</source>
 			</trans-unit>
-			<trans-unit id="tl_hc_mailchimp.resetbutton">
-				<source>Reset</source>
-			</trans-unit>
-			<trans-unit id="tl_hc_mailchimp.submitbutton">
-				<source>Submit</source>
-			</trans-unit>
-			<trans-unit id="tl_hc_mailchimp.error502">
-				<source>Please insert a valid amail adress.</source>
-			</trans-unit>
-			<trans-unit id="tl_hc_mailchimp.error501">
-				<source>Please insert a valid date format (YYYY-MM-DD).</source>
-			</trans-unit>
-			<trans-unit id="tl_hc_mailchimp.error214">
-				<source>Your email adress already exists.</source>
-			</trans-unit>
-			<trans-unit id="tl_hc_mailchimp.error250">
-				<source>You must fill all required fields (*).</source>
-			</trans-unit>
-			<trans-unit id="tl_hc_mailchimp.error232">
-				<source>Your email address don't exist in our List.</source>
-			</trans-unit>
-			<trans-unit id="tl_hc_mailchimp.error215">
-				<source>Please insert a valid email address.</source>
-			</trans-unit>
-			<trans-unit id="tl_hc_mailchimp.archiveerror">
-				<source>No campaign are available.</source>
-			</trans-unit>
-			<trans-unit id="tl_hc_mailchimp.subscribers">
-				<source>Subscribers</source>
-			</trans-unit>
 		</body>
 	</file>
 </xliff>

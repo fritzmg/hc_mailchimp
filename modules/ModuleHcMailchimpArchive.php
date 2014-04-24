@@ -58,7 +58,7 @@ class ModuleHcMailchimpArchive extends Module
 			foreach($campaignlist['data'] as $c){
 				$campaigns[] = $c;
 			}
-			// Felder an Template uebergeben
+			// Fields to template
 			$this->Template->fields = $campaigns;
 		}
 

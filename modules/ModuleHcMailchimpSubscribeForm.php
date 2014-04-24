@@ -22,28 +22,19 @@ class ModuleHcMailchimpSubscribeForm extends Module
 
 		if (Input::post('submit') == "Senden"){
 
-			$emailCleanValue = trim(Input::stripSlashes(Input::xssClean(Input::stripTags(Input::post('EMAIL')))));
+			$emailCleanValue = trim(Input::post('EMAIL'));
 
 			$postArray = array();
 
 			foreach($_POST as $key => $value){
-				$postArray[key] = trim(Input::stripSlashes(Input::xssClean(Input::stripTags($value))));
+				$postArray[$key] = trim(Input::post($key));
 			}
 
-			// All Formdata good, then subscribe
-			if($this->hc_mailchimp_optin_mailchimplist){
-				// User subscribe with optin confirmation
-				$api->listSubscribe( $mailchimpObject->listid, $emailCleanValue, $postArray, 'html' );
-			} else {
-				// User subscribe without optin confirmation
-				$api->listSubscribe( $mailchimpObject->listid, $emailCleanValue, $postArray, 'html', false );
-			}
+			// All FormData good, then subscribe
+			$api->listSubscribe( $mailchimpObject->listid, $emailCleanValue, $postArray, 'html', ($this->hc_mailchimp_optin_mailchimplist ? true : false));
 
 			if ($api->errorCode){
 				// return language file with error code, which api return
-				// error code 502 and 215 : invalid Email address
-				// error code 501 : invalid date format
-				// error code 232 : Email not exists
 				$this->Template->error = $GLOBALS['TL_LANG']['MSC']['hc_mailchimp'][$api->errorCode];
 
 				$this->createForm($api,$mailchimpObject->listid,$dateformat,$subscribersoption);

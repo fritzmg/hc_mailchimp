@@ -10,6 +10,10 @@
 				<source>Please insert a valid date format.</source>
 				<target>Bitte ein gültiges Datumsformat angeben.</target>
 			</trans-unit>
+			<trans-unit id="MSC.hc_mailchimp.214">
+				<source>Email address already exists.</source>
+				<target>Die E-Mail Adresse existiert bereits.</target>
+			</trans-unit>
 			<trans-unit id="MSC.hc_mailchimp.215">
 				<source>Please insert a valid email address.</source>
 				<target>Bitte eine gültige E-Mail Adresse eingeben.</target>
