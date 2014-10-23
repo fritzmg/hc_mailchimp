@@ -8,7 +8,14 @@ class ModuleHcMailchimpUnsubscribeForm extends Module
 
 	protected function compile()
 	{
-		$mailchimpObject = Database::getInstance()
+        // Load custom template if necessary
+        if (($this->hc_mailchimp_template != $this->strTemplate) && ($this->hc_mailchimp_template != ''))
+        {
+            $this->strTemplate = $this->hc_mailchimp_template;
+            $this->Template = new FrontendTemplate($this->strTemplate);
+        }
+
+        $mailchimpObject = Database::getInstance()
 			->prepare("SELECT * FROM tl_hc_mailchimp WHERE id=?")
 			->limit(1)
 			->execute($this->hc_mailchimp_unsubscribeForm_mailchimplist);

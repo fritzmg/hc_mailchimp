@@ -8,6 +8,13 @@ class ModuleHcMailchimpSubscribeFormShort extends Module
 
 	protected function compile()
 	{
+        // Load custom template if necessary
+        if (($this->hc_mailchimp_template != $this->strTemplate) && ($this->hc_mailchimp_template != ''))
+        {
+            $this->strTemplate = $this->hc_mailchimp_template;
+            $this->Template = new FrontendTemplate($this->strTemplate);
+        }
+
 		$listid = $this->hc_mailchimp_subscribeFormShort_mailchimplist;
 		$subscribersoption = $this->hc_mailchimp_subscribers_mailchimplist;
 
