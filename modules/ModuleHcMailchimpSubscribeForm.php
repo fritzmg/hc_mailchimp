@@ -8,7 +8,14 @@ class ModuleHcMailchimpSubscribeForm extends Module
 
 	protected function compile()
 	{
-		$listid = $this->hc_mailchimp_subscribeForm_mailchimplist;
+        // Load custom template if necessary
+        if (($this->hc_mailchimp_template != $this->strTemplate) && ($this->hc_mailchimp_template != ''))
+        {
+            $this->strTemplate = $this->hc_mailchimp_template;
+            $this->Template = new FrontendTemplate($this->strTemplate);
+        }
+
+        $listid = $this->hc_mailchimp_subscribeForm_mailchimplist;
 		$dateformat = $this->hc_mailchimp_dateformat_mailchimplist;
 		$subscribersoption = $this->hc_mailchimp_subscribers_mailchimplist;
 

@@ -8,6 +8,13 @@ class ModuleHcMailchimpArchive extends Module
 
 	protected function compile()
 	{
+        // Load custom template if necessary
+        if (($this->hc_mailchimp_template != $this->strTemplate) && ($this->hc_mailchimp_template != ''))
+        {
+            $this->strTemplate = $this->hc_mailchimp_template;
+            $this->Template = new FrontendTemplate($this->strTemplate);
+        }
+
 		$campaigns = array();
 
 		$mailchimpObject = Database::getInstance()

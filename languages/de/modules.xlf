@@ -129,6 +129,14 @@
 		    <source>Show the number of subscribers from the list.</source>
 		    <target>Zeigt die Anzahl der bisherigen Anmeldungen.</target>
 	    </trans-unit>
+	    <trans-unit id="tl_module.hc_mailchimp_template.0">
+            <source>Template</source>
+        	<target>Template</target>
+        </trans-unit>
+        <trans-unit id="tl_module.hc_mailchimp_template.1">
+            <source>Here you can choose the template.</source>
+            <target>Hier können Sie das Template auswählen.</target>
+        </trans-unit>
     </body>
   </file>
 </xliff>
