@@ -1,5 +1,6 @@
-<?php $this->loadLanguageFile('frontend'); ?>
-<?php $seitenurl = $_SERVER['REQUEST_URI']; ?>
+
+<!-- indexer::stop -->
+<div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
 
 <?php if ($this->headline): ?>
 	<<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
@@ -10,7 +11,7 @@
 	</div>
 <?php endif; ?>
 <?php if ($this->fields): ?>
-	<form id="hc_mailchimp_subscribe_form_short" class="<?php echo $this->class; ?>" action="<?php echo $seitenurl; ?>" method="post">
+	<form class="hc_mailchimp_subscribe_form_short" action="<?php echo $this->action; ?>" method="post">
 	<?php foreach ($this->fields as $field): ?>
 		<?php if (($field['field_type'] == 'text') || ($field['field_type'] == 'number') || ($field['field_type'] == 'email') || ($field['field_type'] == 'phone') || ($field['field_type'] == 'zip')): ?>
 			<div class="type-text ym-fbox-text">
@@ -86,3 +87,6 @@
 		<p><?php echo $this->subscribers." ".$GLOBALS['TL_LANG']['tl_hc_mailchimp']['subscribers'];  ?></p>
 	</div>
 <?php endif; ?>
+
+</div>
+<!-- indexer::continue -->

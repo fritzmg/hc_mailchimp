@@ -75,5 +75,6 @@ class ModuleHcMailchimpSubscribeFormShort extends Module
 		}
 
 		$this->Template->fields = $arrMailChimpListFields;
+		$this->Template->action = \Environment::get('indexFreeRequest');
 	}
 }
