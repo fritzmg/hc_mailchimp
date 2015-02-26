@@ -1,4 +1,6 @@
-<?php $seitenurl = $_SERVER['REQUEST_URI']; ?>
+
+<!-- indexer::stop -->
+<div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
 
 <?php if ($this->headline): ?>
 	<<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
@@ -9,14 +11,22 @@
 	</div>
 <?php endif; ?>
 <?php if ($this->fields): ?>
-	<form id="hc_mailchimp_subscribe_form_short" class="<?php echo $this->class; ?>" action="<?php echo $seitenurl; ?>" method="post">
+	<form class="hc_mailchimp_subscribe_form_short" action="<?php echo $this->action; ?>" method="post">
 	<?php foreach ($this->fields as $field): ?>
-		<?php if (($field['field_type'] == 'text') || ($field['field_type'] == 'number') || ($field['field_type'] == 'email') || ($field['field_type'] == 'phone') || ($field['field_type'] == 'zip')): ?>
+		<?php if($field['field_type'] == 'email'): ?>
 			<div class="type-text ym-fbox-text">
 				<label for="<?php echo $field['name']; ?>" class="hc_mailchimp_subscribe_form_short_label"><?php echo $field['name']; ?>
 				<?php if ($field['req']): ?><sup title="This field is mandatory.">*</sup><?php endif; ?>
 				</label>
-				<input type="text" name="<?php echo $field['tag']; ?>" id="<?php echo $field['name']; ?>" value="<?php echo $_POST[$field['tag']]; ?>" />
+				<input type="email" name="<?php echo $field['tag']; ?>" id="<?php echo $field['name']; ?>" value="<?php echo $_POST[$field['tag']]; ?>"<?php if($field['req']): ?> required<?php endif; ?> />
+			</div>
+		<?php endif; ?>
+		<?php if (($field['field_type'] == 'text') || ($field['field_type'] == 'number')  || ($field['field_type'] == 'phone') || ($field['field_type'] == 'zip')): ?>
+			<div class="type-text ym-fbox-text">
+				<label for="<?php echo $field['name']; ?>" class="hc_mailchimp_subscribe_form_short_label"><?php echo $field['name']; ?>
+				<?php if ($field['req']): ?><sup title="This field is mandatory.">*</sup><?php endif; ?>
+				</label>
+				<input type="text" name="<?php echo $field['tag']; ?>" id="<?php echo $field['name']; ?>" value="<?php echo $_POST[$field['tag']]; ?>"<?php if($field['req']): ?> required<?php endif; ?> />
 			</div>
 		<?php endif; ?>
 		<?php if ($field['field_type'] == 'url'): ?>
@@ -24,7 +34,7 @@
 				<label for="<?php echo $field['name']; ?>" class="hc_mailchimp_subscribe_form_short_label"><?php echo $field['name']." (www.website.com)"; ?>
 				<?php if ($field['req']): ?><sup title="This field is mandatory.">*</sup><?php endif; ?>
 				</label>
-				<input type="text" name="<?php echo $field['tag']; ?>" id="<?php echo $field['name']; ?>" value="<?php echo $_POST[$field['tag']]; ?>" />
+				<input type="url" name="<?php echo $field['tag']; ?>" id="<?php echo $field['name']; ?>" value="<?php echo $_POST[$field['tag']]; ?>"<?php if($field['req']): ?> required<?php endif; ?> />
 			</div>
 		<?php endif; ?>
 		<?php if ($field['field_type'] == 'date'): ?>
@@ -32,7 +42,7 @@
 				<label for="<?php echo $field['name']; ?>" class="hc_mailchimp_subscribe_form_short_label"><?php echo $field['name']." (".$this->dateformat.")"; ?>
 				<?php if ($field['req']): ?><sup title="This field is mandatory.">*</sup><?php endif; ?>
 				</label>
-				<input type="text" name="<?php echo $field['tag']; ?>" id="<?php echo $field['name']; ?>" value="<?php echo $_POST[$field['tag']]; ?>" />
+				<input type="text" name="<?php echo $field['tag']; ?>" id="<?php echo $field['name']; ?>" value="<?php echo $_POST[$field['tag']]; ?>"<?php if($field['req']): ?> required<?php endif; ?> />
 			</div>
 		<?php endif; ?>
 		<?php if ($field['field_type'] == 'dropdown'): ?>
@@ -40,7 +50,7 @@
 				<label for="<?php echo $field['name']; ?>" class="hc_mailchimp_subscribe_form_short_label"><?php echo $field['name']; ?>
 				<?php if ($field['req']): ?><sup title="This field is mandatory.">*</sup><?php endif; ?>
 				</label>
-				<select name="<?php echo $field['tag']; ?>" id="<?php echo $field['name']; ?>" size="1">
+				<select name="<?php echo $field['tag']; ?>" id="<?php echo $field['name']; ?>" size="1"<?php if($field['req']): ?> required<?php endif; ?>>
 				<?php foreach ($field['choices'] as $choice): ?>
 					<option value="<?php echo $choice; ?>"><?php echo $choice; ?></option>
 				<?php endforeach; ?>
@@ -66,7 +76,7 @@
 			<div class="type-check ym-fbox-check">
 				<?php $groupcounter = 1;
 				foreach($field['groups'] as $checkbox){ ?>
-					<input type='checkbox' value='<?php echo $groupcounter; ?>' name ='group[<?php echo $group['id'];?>][<?php echo $groupcounter ?>]'><label><?php echo $checkbox['name']; ?></label>
+					<input type='checkbox' value='<?php echo $groupcounter; ?>' name ='group[<?php echo $group['id'];?>][<?php echo $groupcounter ?>]'<?php if($field['req']): ?> required<?php endif; ?>><label><?php echo $checkbox['name']; ?></label>
 					<?php $groupcounter += 1; ?>
 				<?php } ?>
 			</div>
@@ -85,3 +95,6 @@
 		<p><?php echo $this->subscribers." ".$GLOBALS['TL_LANG']['tl_hc_mailchimp']['subscribers'];  ?></p>
 	</div>
 <?php endif; ?>
+
+</div>
+<!-- indexer::continue -->
