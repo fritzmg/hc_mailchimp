@@ -138,7 +138,7 @@ class tl_module_hc_mailchimp extends Backend
      */
     public function getMailchimpTemplates(DataContainer $dc)
     {
-        return $this->getTemplateGroup($dc->activeRecord->type);
+        return $this->getTemplateGroup('hc_mailchimp');
     }
 }
 
